@@ -9,4 +9,8 @@ import { faker } from '@faker-js/faker';
 export class AppComponent {
   title = 'typing';
   randomText = faker.lorem.sentence();
+
+  onInput(event: Event) {
+    console.log((event.target as HTMLInputElement).value);
+  }
 }
