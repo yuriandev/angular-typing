@@ -9,8 +9,17 @@ import { faker } from '@faker-js/faker';
 export class AppComponent {
   title = 'typing';
   randomText = faker.lorem.sentence();
+  enteredText = '';
 
   onInput(event: Event) {
-    console.log((event.target as HTMLInputElement).value);
+    this.enteredText = (event.target as HTMLInputElement).value;
+  }
+
+  compare(randomLetter: string, enteredLetter: string) {
+    if (!enteredLetter) {
+      return 'pending';
+    }
+
+    return randomLetter === enteredLetter ? 'correct' : 'incorrect';
   }
 }
